@@ -1,10 +1,7 @@
 package com.qa;
 
-import com.qa.exceptions.InvalidKillcountValue;
+import com.qa.exceptions.InvalidKillcountValueException;
 import com.qa.exceptions.InvalidLifeJacketException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Hello world!
@@ -22,7 +19,7 @@ public class App {
             SubbyMcSubFace.setNumberOfLifeJackets(-12);
         } catch (InvalidLifeJacketException eLifeJacket) {
             System.err.println(eLifeJacket);
-        } catch (InvalidKillcountValue eKillcount) {
+        } catch (InvalidKillcountValueException eKillcount) {
             System.err.println(eKillcount);
         } finally {
             System.out.println("This code ran anyway! :)");

@@ -1,10 +1,10 @@
 package com.qa;
 
-import com.qa.exceptions.InvalidKillcountValue;
+import com.qa.exceptions.InvalidKillcountValueException;
 
 public abstract class Air extends MilitaryVehicle implements IDiveable {
 
-    public Air(String name, int age, int killCount, OWNER owner) throws InvalidKillcountValue {
+    public Air(String name, int age, int killCount, OWNER owner) throws InvalidKillcountValueException {
         super(name, age, killCount, owner);
     }
 
