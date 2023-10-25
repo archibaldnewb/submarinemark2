@@ -11,14 +11,16 @@ public class App {
 //        normalRun();
 //        listsAndArrays(SubbyMcSubFace, NorthKorea1, HMSVictoria);
         try {
-            Warship HMSVictoria = new Warship("HMS Victoria", 21, 2147483647, OWNER.United_Kingdom, 1, 1);
-            Submarine BoatyMcBoatFace = new Submarine("BoatyMcBoatFace", 3, -12, OWNER.UNKNOWN, 100);
-            Submarine SubbyMcSubFace = new Submarine("SubbyMcSubFace", 4, 2, OWNER.United_States, 100);
-            Submarine NorthKorea1 = new Submarine();
-            HMSVictoria.setNumberOfLifeJackets(-12);
-            SubbyMcSubFace.setNumberOfLifeJackets(-12);
-        } catch (InvalidLifeJacketException eLifeJacket) {
-            System.err.println(eLifeJacket);
+//            Warship HMSVictoria = new Warship("HMS Victoria", 21, 2147483647, OWNER.United_Kingdom, 1, 1);
+//            Submarine BoatyMcBoatFace = new Submarine("BoatyMcBoatFace", 3, -12, OWNER.UNKNOWN, 100);
+//            Submarine SubbyMcSubFace = new Submarine("SubbyMcSubFace", 4, 2, OWNER.United_States, 100);
+//            Submarine NorthKorea1 = new Submarine();
+//            HMSVictoria.setNumberOfLifeJackets(-12);
+//            SubbyMcSubFace.setNumberOfLifeJackets(-12);
+
+            methodC("COOL PLANE", 30, methodB(methodA(2)), OWNER.UNKNOWN);
+
+
         } catch (InvalidKillcountValueException eKillcount) {
             System.err.println(eKillcount);
         } finally {
@@ -99,4 +101,18 @@ public class App {
 //        submarineList.add(subbyMcSubface);
 //        submarineList.add(USSGun);
 //    }
+
+    public static int methodA(int number) throws InvalidKillcountValueException {
+        return number *2;
+    }
+
+    public static int methodB(int number) throws InvalidKillcountValueException {
+        return number *-1;
+    }
+
+    public static Plane methodC(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValueException {
+        Plane myVehicle = new Plane(name, age, killcount, owner);
+        return myVehicle;
+    };
+
 }
