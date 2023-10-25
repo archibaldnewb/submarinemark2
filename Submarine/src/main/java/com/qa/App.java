@@ -1,6 +1,6 @@
 package com.qa;
 
-import com.qa.exceptions.InvalidKillcountValueException;
+import com.qa.exceptions.InvalidKillcountException;
 import com.qa.exceptions.InvalidLifeJacketException;
 
 /**
@@ -17,11 +17,11 @@ public class App {
 //            Submarine NorthKorea1 = new Submarine();
 //            HMSVictoria.setNumberOfLifeJackets(-12);
 //            SubbyMcSubFace.setNumberOfLifeJackets(-12);
+            Plane myPlane = new Plane("COOL PLANE", 30, 1, OWNER.UNKNOWN);
+            methodA(-12, myPlane);
 
-            methodA("COOL PLANE", 30, 1, OWNER.UNKNOWN);
-
-        } catch (InvalidKillcountValueException e) {
-            System.err.println(e);;
+        } catch (InvalidKillcountException e) {
+            System.err.println(e);
         } finally {
             System.out.println("This code ran anyway! :)");
         }
@@ -101,33 +101,30 @@ public class App {
 //        submarineList.add(USSGun);
 //    }
 
-    public static int methodC(int number) throws InvalidKillcountValueException {
+    public static void methodC(int number, Plane plane) throws InvalidKillcountException {
         try {
-            return number *2;
-        }
-        finally {
+            System.out.println("methodC Called");
+            plane.setKillcount(number);
+        } finally {
             System.out.println("FINALLY DONE METHOD C");
         }
     }
 
-    public static int methodB(int number) throws InvalidKillcountValueException {
+    public static void methodB(int input, Plane plane) throws InvalidKillcountException {
         try {
-            return number *-1;
-        }
-        finally {
+            System.out.println("methodB Called");
+            methodC(input, plane);
+        } finally {
             System.out.println("FINALLY DONE METHOD B");
         }
     }
 
-    public static Plane methodA(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValueException {
+    public static void methodA(int input, Plane plane) throws InvalidKillcountException {
         try {
-            Plane myVehicle = new Plane(name, age, killcount, owner);
-            methodB(myVehicle.getKillcount());
-            return myVehicle;
-        }
-        finally {
+            System.out.println("methodA Called");
+            methodB(input, plane);
+        } finally {
             System.out.println("FINALLY DONE METHOD A");
         }
-    };
-
+    }
 }

@@ -1,19 +1,20 @@
 package com.qa;
 
-import com.qa.exceptions.InvalidKillcountValueException;
+import com.qa.exceptions.InvalidKillcountException;
+import com.qa.exceptions.InvalidLifeJacketException;
 
 public abstract class MilitaryVehicle {
-    public MilitaryVehicle() throws InvalidKillcountValueException {
+    public MilitaryVehicle() throws InvalidKillcountException {
         this("Unknown", 0, 0, OWNER.UNKNOWN);
     }
 
-    public MilitaryVehicle(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValueException {
+    public MilitaryVehicle(String name, int age, int killcount, OWNER owner) throws InvalidKillcountException {
         this.name = name;
         this.age = age;
         if (!(killcount < 0)) {
             this.killcount = killcount;
         } else {
-            throw new InvalidKillcountValueException(name + " has an invalid killcount");
+            throw new InvalidKillcountException(name + " has an invalid killcount");
         }
         this.owner = owner;
     }
@@ -29,8 +30,13 @@ public abstract class MilitaryVehicle {
         return killcount;
     }
 
-    public void setKillcount(int killcount) {
-        this.killcount = killcount;
+    public void setKillcount(int killcount) throws InvalidKillcountException {
+        if (!(killcount < 0)) {
+            this.killcount = killcount;
+        } else {
+            throw new InvalidKillcountException(this.getName() + " has an invalid killcount");
+        }
+
     }
 
     public OWNER getOwner() {
