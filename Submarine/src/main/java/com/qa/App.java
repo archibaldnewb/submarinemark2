@@ -18,11 +18,10 @@ public class App {
 //            HMSVictoria.setNumberOfLifeJackets(-12);
 //            SubbyMcSubFace.setNumberOfLifeJackets(-12);
 
-            methodC("COOL PLANE", 30, methodB(methodA(2)), OWNER.UNKNOWN);
+            methodA("COOL PLANE", 30, 1, OWNER.UNKNOWN);
 
-
-        } catch (InvalidKillcountValueException eKillcount) {
-            System.err.println(eKillcount);
+        } catch (InvalidKillcountValueException e) {
+            System.err.println(e);;
         } finally {
             System.out.println("This code ran anyway! :)");
         }
@@ -102,17 +101,33 @@ public class App {
 //        submarineList.add(USSGun);
 //    }
 
-    public static int methodA(int number) throws InvalidKillcountValueException {
-        return number *2;
+    public static int methodC(int number) throws InvalidKillcountValueException {
+        try {
+            return number *2;
+        }
+        finally {
+            System.out.println("FINALLY DONE METHOD C");
+        }
     }
 
     public static int methodB(int number) throws InvalidKillcountValueException {
-        return number *-1;
+        try {
+            return number *-1;
+        }
+        finally {
+            System.out.println("FINALLY DONE METHOD B");
+        }
     }
 
-    public static Plane methodC(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValueException {
-        Plane myVehicle = new Plane(name, age, killcount, owner);
-        return myVehicle;
+    public static Plane methodA(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValueException {
+        try {
+            Plane myVehicle = new Plane(name, age, killcount, owner);
+            methodB(myVehicle.getKillcount());
+            return myVehicle;
+        }
+        finally {
+            System.out.println("FINALLY DONE METHOD A");
+        }
     };
 
 }
