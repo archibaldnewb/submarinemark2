@@ -1,5 +1,7 @@
 package com.qa;
 
+import com.qa.exceptions.InvalidLifeJacketException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,16 @@ public class App {
         Submarine NorthKorea1 = new Submarine();
         Warship HMSVictoria = new Warship("HMS Victoria", 21, 2147483647, OWNER.United_Kingdom, 1, 1);
 
+//        listsAndArrays(SubbyMcSubFace, NorthKorea1, HMSVictoria);
+
+        try {
+            HMSVictoria.setNumberOfLifeJackets(-12);
+        } catch (InvalidLifeJacketException e) {
+            System.err.println(e);
+        }
+    }
+
+    private static void listsAndArrays(Submarine SubbyMcSubFace, Submarine NorthKorea1, Warship HMSVictoria) {
         MilitaryVehicle[] navalVessels = new MilitaryVehicle[3];
         navalVessels[0] = SubbyMcSubFace;
         navalVessels[1] = NorthKorea1;
@@ -46,7 +58,6 @@ public class App {
             add(NorthKorea1);
             add(AirForce1);
         }};
-
     }
 
 

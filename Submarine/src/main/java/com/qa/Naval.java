@@ -1,5 +1,7 @@
 package com.qa;
 
+import com.qa.exceptions.InvalidLifeJacketException;
+
 public abstract class Naval extends MilitaryVehicle{
     public Naval() {
         this.numberOfLifeJackets = 0;
@@ -15,8 +17,12 @@ public abstract class Naval extends MilitaryVehicle{
         return numberOfLifeJackets;
     }
 
-    public void setNumberOfLifeJackets(int numberOfLifeJackets) {
-        this.numberOfLifeJackets = numberOfLifeJackets;
+    public void setNumberOfLifeJackets(int numberOfLifeJackets) throws InvalidLifeJacketException {
+        if (!(numberOfLifeJackets < 0)) {
+            this.numberOfLifeJackets = numberOfLifeJackets;
+        } else {
+            throw new InvalidLifeJacketException();
+        }
     }
 
     @Override
