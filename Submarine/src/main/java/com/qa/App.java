@@ -1,6 +1,7 @@
 package com.qa;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -28,11 +29,26 @@ public class App {
         divingVessels[1] = NorthKorea1;
         divingVessels[2] = AirForce1;
 
-        for (IDiveable i :divingVessels) {
+        for (IDiveable i : divingVessels) {
             System.out.println(i.dive());
         }
+
+        List<IDiveable> divingVesselsList = new ArrayList<>();
+        divingVesselsList.add(SubbyMcSubFace);
+        divingVesselsList.add(NorthKorea1);
+        divingVesselsList.add(AirForce1);
+
+        for (IDiveable i : divingVesselsList) {
+            System.out.println(i.dive());
+        }
+        List<IDiveable> divingVesselsListTest = new ArrayList<IDiveable>() {{
+            add(SubbyMcSubFace);
+            add(NorthKorea1);
+            add(AirForce1);
+        }};
+
     }
-    
+
 
     private static void normalRun() {
         Submarine subbyMcSubface = new Submarine();
