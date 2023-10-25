@@ -1,11 +1,13 @@
 package com.qa;
 
+import com.qa.exceptions.InvalidKillcountValue;
+
 public class Submarine extends Naval implements IDiveable {
-    public Submarine() {
+    public Submarine() throws InvalidKillcountValue  {
         this("Unknown", 0, 0, OWNER.UNKNOWN, 0);
     }
 
-    public Submarine(String name, int age, int killcount, OWNER owner, int numberOfLifeJackets) {
+    public Submarine (String name, int age, int killcount, OWNER owner, int numberOfLifeJackets) throws InvalidKillcountValue {
         super(name, age, killcount, owner, numberOfLifeJackets);
     }
 

@@ -1,14 +1,20 @@
 package com.qa;
 
+import com.qa.exceptions.InvalidKillcountValue;
+
 public abstract class MilitaryVehicle {
-    public MilitaryVehicle() {
+    public MilitaryVehicle() throws InvalidKillcountValue {
         this("Unknown", 0, 0, OWNER.UNKNOWN);
     }
 
-    public MilitaryVehicle(String name, int age, int killcount, OWNER owner) {
+    public MilitaryVehicle(String name, int age, int killcount, OWNER owner) throws InvalidKillcountValue {
         this.name = name;
         this.age = age;
-        this.killcount = killcount;
+        if (!(killcount < 0)) {
+            this.killcount = killcount;
+        } else {
+            throw new InvalidKillcountValue(name + " has an invalid killcount");
+        }
         this.owner = owner;
     }
 

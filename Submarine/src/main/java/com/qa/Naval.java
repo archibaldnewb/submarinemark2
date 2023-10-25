@@ -1,13 +1,14 @@
 package com.qa;
 
+import com.qa.exceptions.InvalidKillcountValue;
 import com.qa.exceptions.InvalidLifeJacketException;
 
 public abstract class Naval extends MilitaryVehicle{
-    public Naval() {
+    public Naval() throws InvalidKillcountValue {
         this.numberOfLifeJackets = 0;
     }
 
-    public Naval(String name, int age, int killcount, OWNER owner, int numberOfLifeJackets) {
+    public Naval(String name, int age, int killcount, OWNER owner, int numberOfLifeJackets) throws InvalidKillcountValue {
         super(name, age, killcount, owner);
         this.numberOfLifeJackets = numberOfLifeJackets;
     }
@@ -21,7 +22,7 @@ public abstract class Naval extends MilitaryVehicle{
         if (!(numberOfLifeJackets < 0)) {
             this.numberOfLifeJackets = numberOfLifeJackets;
         } else {
-            throw new InvalidLifeJacketException();
+            throw new InvalidLifeJacketException(this.getName() + " has an invalid number of life jackets");
         }
     }
 
