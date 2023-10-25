@@ -1,6 +1,6 @@
 package com.qa;
 
-public class Submarine extends Naval {
+public class Submarine extends Naval implements IDiveable {
     public Submarine() {
         this("Unknown", 0, 0, OWNER.UNKNOWN, 0);
     }
@@ -44,5 +44,10 @@ public class Submarine extends Naval {
     @Override
     public String toString() {
         return String.format("Name: %s, Age: %d, Kill-count: %d, Owner: %s", this.getName(), this.getAge(), this.getKillcount(), this.getOwner().toString());
+    }
+
+    @Override
+    public String dive() {
+        return "Diving into water!";
     }
 }

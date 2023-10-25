@@ -20,6 +20,17 @@ public class App {
         for (MilitaryVehicle i : navalVessels) {
             System.out.println(i.shootMain());
         }
+
+
+        Plane AirForce1 = new Plane("AirForce1", 1, 3, OWNER.China);
+        IDiveable[] divingVessels = new IDiveable[3];
+        divingVessels[0] = SubbyMcSubFace;
+        divingVessels[1] = NorthKorea1;
+        divingVessels[2] = AirForce1;
+
+        for (IDiveable i :divingVessels) {
+            System.out.println(i.dive());
+        }
     }
     
 
