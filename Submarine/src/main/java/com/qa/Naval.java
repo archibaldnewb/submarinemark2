@@ -18,4 +18,9 @@ public abstract class Naval extends MilitaryVehicle{
     public void setNumberOfLifeJackets(int numberOfLifeJackets) {
         this.numberOfLifeJackets = numberOfLifeJackets;
     }
+
+    @Override
+    public String shootMain() {
+        return this.getName() + " has shot their gun!";
+    }
 }

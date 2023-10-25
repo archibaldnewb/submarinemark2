@@ -4,16 +4,20 @@ public abstract class MilitaryVehicle {
     public MilitaryVehicle() {
         this("Unknown", 0, 0, OWNER.UNKNOWN);
     }
+
     public MilitaryVehicle(String name, int age, int killcount, OWNER owner) {
         this.name = name;
         this.age = age;
         this.killcount = killcount;
         this.owner = owner;
     }
+
     private String name;
     private int age;
     private int killcount;
     private OWNER owner;
+
+    public abstract String shootMain();
 
     public int getKillcount() {
         return killcount;
@@ -45,9 +49,5 @@ public abstract class MilitaryVehicle {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String shootMain() {
-        return this.getName() + " has shot their gun!";
     }
 }

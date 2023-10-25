@@ -12,15 +12,16 @@ public class App {
         Submarine NorthKorea1 = new Submarine();
         Warship HMSVictoria = new Warship("HMS Victoria", 21, 2147483647, OWNER.United_Kingdom, 1, 1);
 
-        Naval[] navalVessels = new Naval[3];
+        MilitaryVehicle[] navalVessels = new MilitaryVehicle[3];
         navalVessels[0] = SubbyMcSubFace;
         navalVessels[1] = NorthKorea1;
         navalVessels[2] = HMSVictoria;
 
-        for (Naval i : navalVessels) {
+        for (MilitaryVehicle i : navalVessels) {
             System.out.println(i.shootMain());
         }
     }
+    
 
     private static void normalRun() {
         Submarine subbyMcSubface = new Submarine();
